@@ -1,0 +1,11 @@
+---
+- name: create dir
+  file: path=/home/vagrant/pdfminer mode=0775 state=directory
+
+- name: clone pdfminer
+  git: repo=https://github.com/euske/pdfminer.git dest=/home/vagrant/pdfminer
+
+- name: install pdfminer
+  command: /usr/bin/python setup.py install
+  args:
+    chdir: /home/vagrant/pdfminer
